@@ -29,6 +29,41 @@ In the project directory, you can run:
 7)Header and Footer <br/>
 
 
+## Screenshots
+
+**Landing Page**
+
+![App Screenshot](https://github.com/deepRaj06/time_camp_Clone/blob/master/Screenshots/Screenshot%20(125).png?raw=true)
+
+**Signup Page**
+
+![App Screenshot](https://github.com/deepRaj06/time_camp_Clone/blob/master/Screenshots/Screenshot%20(126).png?raw=true)
+
+**Login Page**
+
+![App Screenshot](https://github.com/deepRaj06/time_camp_Clone/blob/master/Screenshots/Screenshot%20(127).png?raw=true)
+
+**Blog Page**
+
+![App Screenshot](https://github.com/deepRaj06/time_camp_Clone/blob/master/Screenshots/Screenshot%20(128).png?raw=true)
+
+**Pricing Page**
+
+![App Screenshot](https://github.com/deepRaj06/time_camp_Clone/blob/master/Screenshots/Screenshot%20(129).png?raw=true)
+
+**Timesheet Page**
+
+![App Screenshot](https://github.com/deepRaj06/time_camp_Clone/blob/master/Screenshots/Screenshot%20(135).png?raw=true)
+
+**Projects Page**
+
+![App Screenshot](https://github.com/deepRaj06/time_camp_Clone/blob/master/Screenshots/Screenshot%20(136).png?raw=true)
+
+**Tags Page**
+
+![App Screenshot](https://github.com/deepRaj06/time_camp_Clone/blob/master/Screenshots/Screenshot%20(137).png?raw=true)
+
+
 ## Collaborators
 1)Harapriya Sahu(https://github.com/Harapriyasahu) <br/>
 2)Gautam Kumar(https://github.com/gkomsai)  <br/>
