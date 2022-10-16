@@ -13,11 +13,10 @@ import Timesheet from "../Pages/TimeSheet/Timesheet";
 import Error from "../Pages/Error";
 import PrivateRoute from "../Components/PrivateRoute";
 import Demo from "../Pages/Blog/Demo";
-
-
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const AllRoutes = () => {
-
 
   return (
     <Routes>
@@ -42,7 +41,7 @@ const AllRoutes = () => {
         <Route path="projects" element={<Projects />} />
         <Route path="tags" element={<Tags />} />
       </Route>
-      <Route path="*" element={<Error />} />
+      {/* <Route path="*" element={<Error />} /> */}
     </Routes>
   );
 };

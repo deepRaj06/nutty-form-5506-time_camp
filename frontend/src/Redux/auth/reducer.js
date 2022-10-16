@@ -12,6 +12,7 @@ import {
 } from "./actionTypes";
 
 const initialState = {
+  googleUser: [],
   token: getItemFromLocal("token") || false,
   user: getItemFromLocal("user") || {},
   isAuthLoading: false,
@@ -53,6 +54,7 @@ export const AuthReducer = (state = initialState, action) => {
       return {
         ...state,
         isAuthLoading: false,
+        googleUser: payload,
         token: payload.token,
         user: payload.user,
         isError: false,

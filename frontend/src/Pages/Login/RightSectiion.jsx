@@ -1,17 +1,20 @@
 import React, { useState } from "react";
-import { Box,  Input, Text, useToast } from "@chakra-ui/react";
+import { Box, Button, Input, Text, useToast } from "@chakra-ui/react";
 import styles from "./Login.module.css";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginFailure, loginRequest, loginSuccess } from "../../Redux/auth/action";
+import {
+  loginFailure,
+  loginRequest,
+  loginSuccess,
+} from "../../Redux/auth/action";
 import axios from "axios";
 import { notify } from "../../utils/extraFunctions";
 
-
 const RightSectiion = () => {
   const [user, setUser] = useState({});
-  const navigate = useNavigate();
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const toast = useToast();
 
@@ -29,23 +32,33 @@ const RightSectiion = () => {
         console.log(res.data);
         if (res.data.token) {
           // console.log(res.data);
-         
+
           dispatch(loginSuccess(res.data));
           notify(toast, res.data.message, "success", "bottom");
           navigate("/app/timesheet");
           window.location.reload();
         }
       })
-      .catch((err) =>{
-        notify(toast, err.response.data.message, 'error',"bottom");
-        dispatch(loginFailure())
-      } );
+      .catch((err) => {
+        notify(toast, err.response.data.message, "error", "bottom");
+        dispatch(loginFailure());
+      });
   };
 
-
+  // Google Authentication button
+  const handleGoogleAuth = () => {
+    window.open(
+      `${process.env.REACT_APP_API_URL}/auth/google`,
+      "_self"
+    );
+  };
 
   return (
-    <Box w={{base:"90%", md:"70%",lg:"50%"}} m="auto" className={styles.logindiv}>
+    <Box
+      w={{ base: "90%", md: "70%", lg: "50%" }}
+      m="auto"
+      className={styles.logindiv}
+    >
       <Text className={styles.loginheading}>Log in to TimeCamp</Text>
 
       <Box
@@ -53,7 +66,12 @@ const RightSectiion = () => {
         _hover={{ backgroundColor: "gray.100" }}
       >
         <FcGoogle fontSize="30px" />
-        <Text fontSize="14px" fontWeight="700" color="#8f7e77">
+        <Text
+          onClick={handleGoogleAuth}
+          fontSize="14px"
+          fontWeight="700"
+          color="#8f7e77"
+        >
           Log in with Google
         </Text>
       </Box>
@@ -63,7 +81,13 @@ const RightSectiion = () => {
       </Text>
 
       <Box margin="auto" width="75%" marginTop="20px">
-        <Input type = "email" name="email" focusBorderColor="#25cf60" placeholder="email"   onChange={handleChange}/>
+        <Input
+          type="email"
+          name="email"
+          focusBorderColor="#25cf60"
+          placeholder="email"
+          onChange={handleChange}
+        />
         <Input
           type="password"
           name="password"

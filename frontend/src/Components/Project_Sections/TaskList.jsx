@@ -285,7 +285,7 @@ useEffect(() => {
                               />
                             </Icon>
 
-                            {tasksData &&
+                            {tasksData.length && tasksData &&
                               tasksData.map((el) => {
                                 handleTaskData(el._id)
                                 return <Text key={el._id}> {el.title} </Text>;

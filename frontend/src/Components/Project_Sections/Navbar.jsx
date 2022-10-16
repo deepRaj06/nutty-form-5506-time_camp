@@ -19,7 +19,7 @@ import {
   removeItemFromLocal,
 } from "../../utils/localStorage";
 import { notify } from "../../utils/extraFunctions";
-import { useDispatch, } from "react-redux";
+import { useDispatch, useSelector, } from "react-redux";
 import { logoutSuccess } from "../../Redux/auth/action";
 import { useNavigate } from "react-router-dom";
 
@@ -30,7 +30,16 @@ const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const toast = useToast();
+
+  const token = useSelector((store) => store.AuthReducer.token);
+  const googleUser = useSelector( (store) => store.AuthReducer.googleUser);
+  console.log(googleUser)
   const handleLogout = () => {
+
+    if(token === null || token === ''){
+      window.open(`${process.env.REACT_APP_API_URL}/auth/logout`, "_self");
+      notify(toast, "Logout Successfully", "success","bottom");
+    }
     dispatch(logoutSuccess());
     removeItemFromLocal("token");
     removeItemFromLocal("user");
@@ -89,18 +98,22 @@ const Navbar = () => {
 
             <Menu>
               <MenuButton as={Button} background="white">
-                {user?<Avatar size="sm" name={user.name} src='https://bit.ly/broken-link' />:  <Image
+                {user?<Avatar size="sm" name={user.name} src='https://bit.ly/broken-link' />:
+                <Image
                   // _hover={hover3}
                   src="https://www.gravatar.com/avatar/cc306f4d0b49ec63773e34e7a89f4583?s=60&d=mm"
                   alt="User"
                   w="32px"
                   h="32px"
                   borderRadius="full"
-                />}
+                />
+                }
                
               </MenuButton>
               <MenuList>
-                <MenuItem>{user?.email}</MenuItem>
+                <MenuItem>
+                {googleUser.displayName}{user?.email}
+                </MenuItem>
                 <Divider color="grey"></Divider>
                 <MenuItem>Download App</MenuItem>
                 <MenuItem>Browser Plugin</MenuItem>

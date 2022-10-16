@@ -8,6 +8,7 @@ console.log(token);
 const headers = {
   "Content-Type": "application/json",
   Authorization: `Bearer ${token}`,
+  "Access-Control-Allow-Credentials": true
 };
 
 

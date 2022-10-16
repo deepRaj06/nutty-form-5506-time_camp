@@ -15,7 +15,7 @@ import {
 import { notify } from "../../utils/extraFunctions";
 const Signup = () => {
   const [user, setUser] = useState({});
-  console.log("user", user)
+  console.log("user", user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const toast = useToast();
@@ -35,14 +35,22 @@ const Signup = () => {
         if (res.data) {
           // console.log(res.data);
           dispatch(signupSuccess(res.data));
-          notify(toast, 'Account Created Successfully', 'success',"bottom");
+          notify(toast, "Account Created Successfully", "success", "bottom");
           navigate("/login");
         }
       })
-      .catch((err) =>{
-        notify(toast, err.response.data.message, 'error',"bottom");
-        dispatch(signupFailure())
-      } );
+      .catch((err) => {
+        notify(toast, err.response.data.message, "error", "bottom");
+        dispatch(signupFailure());
+      });
+  };
+
+  // Google Authentication button
+  const handleGoogleAuth = () => {
+    window.open(
+      `${process.env.REACT_APP_API_URL}/auth/google/callback`,
+      "_self"
+    );
   };
 
   return (
@@ -60,7 +68,11 @@ const Signup = () => {
           _hover={{ backgroundColor: "gray.100" }}
         >
           <FcGoogle className={styles.googlelogo} />
-          <Text className={styles.googletext} color="#8f7e77">
+          <Text
+            onClick={handleGoogleAuth}
+            className={styles.googletext}
+            color="#8f7e77"
+          >
             Sign up with Google
           </Text>
         </Box>

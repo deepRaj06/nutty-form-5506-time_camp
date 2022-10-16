@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import { store } from "./Redux/store";
 import axios from "axios";
 
-axios.defaults.baseURL="https://timecamp-backend.herokuapp.com";
+axios.defaults.baseURL = `${process.env.REACT_APP_API_URL}`;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

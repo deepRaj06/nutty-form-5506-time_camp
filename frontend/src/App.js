@@ -7,11 +7,13 @@ import AllRoutes from "./Routes/AllRoutes";
 
 function App() {
   const token = useSelector((store) => store.AuthReducer.token);
+  const googleUser = useSelector((store) => store.AuthReducer.googleUser);
+
   return (
     <div className="App">
-      {token ? null : <Navvbar />}
+      {token === null || googleUser.length === 0 ? <Navvbar /> : ""}
       <AllRoutes />
-      {token ? null : <Footer />}
+      {token === null || googleUser.length === 0 ? <Footer /> : ""}
     </div>
   );
 }
