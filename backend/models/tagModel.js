@@ -7,7 +7,8 @@ const tagSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    userId: { type: String, required: true },
+    userId: { type: String},
+    // userId: { type: String, required: true },
   },
   { versionKey: false, timestamps: true }
 );

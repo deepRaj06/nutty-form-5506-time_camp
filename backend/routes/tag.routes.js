@@ -4,7 +4,7 @@ const { TagModel } = require("../models/tagModel");
 
 const tagRouter = Router();
 
-tagRouter.use(checkUserAuth);
+// tagRouter.use(checkUserAuth);
 
 /* --------------For getting the all tags------------------ */
 

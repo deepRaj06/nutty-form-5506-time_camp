@@ -4,7 +4,7 @@ const ProjectModel = require("../models/projectModel");
 const projectRouter = Router();
 
 
-projectRouter.use(checkUserAuth);
+// projectRouter.use(checkUserAuth);
 
 
 
